@@ -57,7 +57,7 @@ checkpoint = ModelCheckpoint(
 # ==============================
 model.fit(
     train_gen,
-    steps_per_epoch=300,  # ❌ Intentional issue for PR agent
+     steps_per_epoch=len(os.listdir(os.path.join(TRAIN_PATH, 'image'))), 
     epochs=EPOCHS,
     callbacks=[checkpoint]
 )
